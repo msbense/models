@@ -78,6 +78,8 @@ def _get_classifier_parameters(
           'batch_size': per_replica_batch_size,
           'image_size': 224,
           'dtype': dtype,
+          'num_classes': 1000,
+          'num_examples': 1281167,
       },
       'validation_dataset': {
           'builder': builder,
@@ -85,6 +87,8 @@ def _get_classifier_parameters(
           'use_per_replica_batch_size': True,
           'image_size': 224,
           'dtype': dtype,
+          'num_classes': 1000,
+          'num_examples': 50000,
       },
       'train': {
           'epochs': epochs,

@@ -188,11 +188,12 @@ class Resnet50KerasAccuracy(keras_benchmark.KerasBenchmark):
     self._run_and_report_benchmark(
         experiment_name='benchmark_8_gpu',
         num_gpus=8,
-        per_replica_batch_size=128,
+        per_replica_batch_size=16,
         epochs=90,
         epochs_between_evals=10,
         dtype='float32',
-        dataset_num_private_threads=14)
+        dataset_num_private_threads=14,
+        run_eagerly=True)
 
   def benchmark_8_gpu_fp16(self):
     """Tests Keras model with eager, dist_strat, 8 GPUs, and fp16."""

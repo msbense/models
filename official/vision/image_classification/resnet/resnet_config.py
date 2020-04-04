@@ -45,6 +45,7 @@ class ResNetModelConfig(base_configs.ModelConfig):
       'rescale_inputs': False,
   })
   loss: base_configs.LossConfig = base_configs.LossConfig(
+      label_smoothing=0.1,
       name='sparse_categorical_crossentropy')
   optimizer: base_configs.OptimizerConfig = base_configs.OptimizerConfig(
       name='momentum',

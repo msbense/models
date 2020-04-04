@@ -121,7 +121,7 @@ class Resnet50KerasAccuracy(keras_benchmark.KerasBenchmark):
 
     flag_methods = [classifier_trainer.define_classifier_flags]
 
-    self.data_dir = os.path.join(root_data_dir, 'imagenet')
+    self.data_dir = 'gs://tf-perf-imagenet-uswest1/tensorflow/imagenet'
     super(Resnet50KerasAccuracy, self).__init__(
         output_dir=output_dir, flag_methods=flag_methods)
 

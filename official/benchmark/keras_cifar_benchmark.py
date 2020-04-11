@@ -83,6 +83,7 @@ class Resnet56KerasAccuracy(keras_benchmark.KerasBenchmark):
   def benchmark_cpu(self):
     """Test keras based model on CPU."""
     self._setup()
+    print("Here");
     FLAGS.num_gpus = 0
     FLAGS.data_dir = self.data_dir
     FLAGS.batch_size = 32

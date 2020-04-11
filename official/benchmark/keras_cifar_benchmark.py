@@ -204,10 +204,9 @@ class Resnet56KerasAccuracy(keras_benchmark.KerasBenchmark):
 class Resnet56KerasBenchmarkBase(keras_benchmark.KerasBenchmark):
   """Short performance tests for ResNet56 via Keras and CIFAR-10."""
 
-  def __init__(self, output_dir=None, root_data_dir=None, default_flags=None):
+  def __init__(self, output_dir=None, default_flags=None):
     flag_methods = [resnet_cifar_main.define_cifar_flags]
-    
-    self.data_dir = root_data_dir
+
     super(Resnet56KerasBenchmarkBase, self).__init__(
         output_dir=output_dir,
         flag_methods=flag_methods,
@@ -319,7 +318,6 @@ class Resnet56KerasBenchmarkBase(keras_benchmark.KerasBenchmark):
     FLAGS.num_gpus = 0
     FLAGS.enable_eager = True
     FLAGS.model_dir = self._get_model_dir('benchmark_cpu')
-    FLAGS.data_dir = self.data_dir
     FLAGS.batch_size = 128
     FLAGS.data_format = 'channels_last'
     self._run_and_report_benchmark()

@@ -86,8 +86,8 @@ class Resnet56KerasAccuracy(keras_benchmark.KerasBenchmark):
     print("Here");
     FLAGS.num_gpus = 0
     FLAGS.data_dir = self.data_dir
-    FLAGS.batch_size = 32
-    FLAGS.train_epochs = 10
+    FLAGS.batch_size = 128
+    FLAGS.train_epochs = 3
     FLAGS.model_dir = self._get_model_dir('benchmark_cpu')
     FLAGS.dtype = 'fp32'
     FLAGS.enable_eager = True

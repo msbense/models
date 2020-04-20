@@ -97,7 +97,7 @@ class Resnet56KerasAccuracy(keras_benchmark.KerasBenchmark):
     print(dir(tf.config.experimental))
     print(tf.config.experimental.list_logical_devices())
     print(tf.config.experimental.list_physical_devices())
-    print(tf.config.get_logical_device_configuration())
+    print(tf.config.get_logical_device_configuration(tf.config.experimental.list_physical_devices()[0]))
     print(tf.config.device_count())
     FLAGS.data_format = 'channels_last'
     self._run_and_report_benchmark()

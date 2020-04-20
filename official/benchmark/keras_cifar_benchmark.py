@@ -91,7 +91,8 @@ class Resnet56KerasAccuracy(keras_benchmark.KerasBenchmark):
     FLAGS.dtype = 'fp32'
     FLAGS.distribution_strategy = 'off' #
     FLAGS.enable_eager = False #
-    tf.config.experimental.use_numa_affinity = True #
+    # tf.config.experimental.use_numa_affinity = True #
+    print(dir(tf.config))
     FLAGS.data_format = 'channels_last'
     self._run_and_report_benchmark()
 

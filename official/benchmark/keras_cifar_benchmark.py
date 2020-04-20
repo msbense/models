@@ -92,13 +92,19 @@ class Resnet56KerasAccuracy(keras_benchmark.KerasBenchmark):
     FLAGS.distribution_strategy = 'off' #
     FLAGS.enable_eager = False #
     # tf.config.experimental.use_numa_affinity = True #
-    print(dir(tf.config))
-    print("Experimental:")
-    print(dir(tf.config.experimental))
-    print(tf.config.experimental.list_logical_devices())
-    print(tf.config.experimental.list_physical_devices())
-    print(tf.config.get_logical_device_configuration(tf.config.experimental.list_physical_devices()[0]))
-    print(tf.config.device_count())
+    # print(dir(tf.config))
+    # print("Experimental:")
+    # print(dir(tf.config.experimental))
+    # print(tf.config.experimental.list_logical_devices())
+    # print(tf.config.experimental.list_physical_devices())
+    # print(tf.config.get_logical_device_configuration(tf.config.experimental.list_physical_devices()[0]))
+    physical_devices = tf.config.list_physical_devices('CPU') 
+    tf.config.set_logical_device_configuration( 
+      physical_devices[0], 
+      [tf.config.LogicalDeviceConfiguration(), 
+        tf.config.LogicalDeviceConfiguration()]) 
+    print(tf.config.list_logical_devices('CPU'))
+    
     FLAGS.data_format = 'channels_last'
     self._run_and_report_benchmark()
 

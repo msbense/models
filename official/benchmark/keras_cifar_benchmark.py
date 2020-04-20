@@ -93,6 +93,8 @@ class Resnet56KerasAccuracy(keras_benchmark.KerasBenchmark):
     FLAGS.enable_eager = False #
     # tf.config.experimental.use_numa_affinity = True #
     print(dir(tf.config))
+    print("Experimental:")
+    print(dir(tf.config.experimental))
     FLAGS.data_format = 'channels_last'
     self._run_and_report_benchmark()
 
